@@ -7,7 +7,7 @@ import java.net.Socket;
  * @author dongyafei
  * @date 2021/11/29
  */
-public class SocketTest {
+public class SocketTest1 {
 
     public static void main(String[] args) {
         try(Socket socket = new Socket("127.0.0.1", 9094);
@@ -20,8 +20,6 @@ public class SocketTest {
             writer.print("Host: 127.0.0.1:9094\r\n");
             writer.print("Connection: Close\r\n");
             writer.print("\r\n");
-            // 强制刷新，清空缓存区
-            writer.flush();
             StringBuilder sb = new StringBuilder(8096);
             String line;
             // 阻塞式读取
