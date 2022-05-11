@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 public class Response {
 
     // 缓存区大小
-    private static final int BUFF_SIZE = 1024;
+    private static final int BUFF_SIZE = 2048;
     // 保存请求对象
     private Request request;
     // 输出流

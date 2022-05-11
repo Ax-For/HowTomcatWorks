@@ -27,7 +27,7 @@ public class HttpServer {
     public void await(){
         ServerSocket serverSocket = null;
         try {
-            serverSocket = new ServerSocket(9094, 2, InetAddress.getByName("127.0.0.1"));
+            serverSocket = new ServerSocket(9094, 10, InetAddress.getByName("127.0.0.1"));
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -51,12 +51,13 @@ public class HttpServer {
                 response.sendStaticResource();
 
                 socket.close();
+                Thread.sleep(10 * 1000);
                 System.out.println("关闭Socket");
                 System.out.println("\n===================================\n");
 
                 isConnectable = !SHUT_DOWN.equals(request.getUri());
             }
-            catch(IOException e){
+            catch(IOException | InterruptedException e){
                 e.printStackTrace();
             }
         }
